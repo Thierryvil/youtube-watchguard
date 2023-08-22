@@ -23,7 +23,13 @@ Aqui estão as variáveis de ambiente utilizadas neste projeto:
 
 **GOOGLE_API_KEY**: Sua chave de API do Google para acessar a API do YouTube.
 
-**PORT**: A porta em que o servidor será executado.
+**PORT**: A porta em que o servidor será executado (Padrao: 5000).
+
+**MAX_VIDEOS_RESULT**: Quantidade maxima de videos que retornará do youtube (Padrao: 200)
+
+**MAX_KEYWORD_DISPLAY**: Quantidade maxima de palavras que irá contar (Padrao: 5)
+
+**DEBUG**: Verifica se esta no modo DEBUG para usar dados mockados.
 
 ### Configurar variáveis de ambiente
 
