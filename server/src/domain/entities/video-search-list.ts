@@ -5,3 +5,7 @@ export interface VideoSearchList {
   publishedAt: string
   thumbnail: string
 }
+
+export interface VideoSearchListWithDuration extends VideoSearchList {
+  duration: string
+}

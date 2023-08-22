@@ -14,10 +14,3 @@ export function convertISO8601ToSeconds(duration: string): number {
   const totalSeconds = hoursInSeconds + minutesInSeconds + seconds
   return totalSeconds
 }
-
-export function convertSecondsToDays(
-  secondsInADay: number,
-  seconds: number,
-): number {
-  return seconds / secondsInADay
-}

@@ -1,7 +1,8 @@
 {
     "env": {
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "standard-with-typescript",
@@ -17,6 +18,15 @@
         "sourceType": "module",
         "ecmaVersion": 2020
      },
+     "overrides": [
+        {
+          "files": ["tests/**/*.spec.ts"],
+          "extends": ["plugin:@typescript-eslint/recommended"],
+          "parserOptions": {
+            "project": "tsconfig.json"
+          }
+        }
+      ],
     "rules": {
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-floating-promises": "off",
@@ -34,6 +44,7 @@
         ]
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "jest"
     ]
 }

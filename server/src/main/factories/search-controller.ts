@@ -1,5 +1,12 @@
-import { GetVideoDataService, GetVideosIdService } from "../../data/services"
-import { YoutubeRepository } from "../../infra/repositories/youtube"
+import {
+  GetVideosDataService,
+  GetVideosIdService,
+  GetVideosDurationService,
+} from "../../data/services"
+import {
+  YoutuVideosDurationsRepository,
+  YoutubeVideosDataRepository,
+} from "../../infra/repositories/"
 import { type Controller } from "../../presentation/contracts"
 import { SearchController } from "../../presentation/controllers"
 import { google } from "googleapis"
@@ -11,17 +18,18 @@ export const makeSearchController = (): Controller => {
     auth: env.GOOGLE_API_KEY,
   })
 
-  const repo = new YoutubeRepository(
-    youtubeAPI,
-    "javascript",
-    env.MAX_VIDEOS_RESULT,
-    env.DEBUG,
-  )
-  const getVideoDataService = new GetVideoDataService(repo)
+  const repo = new YoutubeVideosDataRepository(youtubeAPI, env.DEBUG)
+
+  const getVideosDurationRepo = new YoutuVideosDurationsRepository(youtubeAPI)
+  const getVideosDataService = new GetVideosDataService(repo)
   const getVideosIdService = new GetVideosIdService()
+  const getVideosDurationService = new GetVideosDurationService(
+    getVideosDurationRepo,
+  )
   const searchController = new SearchController(
-    getVideoDataService,
+    getVideosDataService,
     getVideosIdService,
+    getVideosDurationService,
   )
   return searchController
 }

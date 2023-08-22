@@ -1,17 +1,15 @@
-import { type GetVideoDataRepository } from "../../data/contracts/get-video-data-repository"
-import { type VideoDataModel } from "../../data/models/get-video-data"
+import { type GetVideosDataRepository } from "../../data/contracts/get-videos-data-repository"
+import { type VideoDataModel } from "../../data/models/video"
 import { SEARCH_VIEW_MODEL } from "../../utils/mocks/search-video-model"
 import { type youtube_v3 } from "googleapis"
 
-export class YoutubeRepository implements GetVideoDataRepository {
+export class YoutubeVideosDataRepository implements GetVideosDataRepository {
   constructor(
     private readonly youtubeAPI: youtube_v3.Youtube,
-    private readonly query: string,
-    private readonly maxResults: number,
     private readonly debug = false,
   ) {}
 
-  async load(): Promise<VideoDataModel[]> {
+  async load(query: string, maxResults: number): Promise<VideoDataModel[]> {
     const videoData: VideoDataModel[] = []
 
     if (this.debug) {
@@ -23,9 +21,9 @@ export class YoutubeRepository implements GetVideoDataRepository {
 
     while (totalVideosLoaded < 200) {
       const response = await this.youtubeAPI.search.list({
-        q: this.query,
+        q: query,
         part: ["snippet"],
-        maxResults: this.maxResults,
+        maxResults,
         pageToken: nextPageToken,
       })
 
