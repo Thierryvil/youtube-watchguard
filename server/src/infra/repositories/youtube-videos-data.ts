@@ -19,7 +19,7 @@ export class YoutubeVideosDataRepository implements GetVideosDataRepository {
     let nextPageToken: string | undefined
     let totalVideosLoaded = 0
 
-    while (totalVideosLoaded < 200) {
+    while (totalVideosLoaded < maxResults) {
       const response = await this.youtubeAPI.search.list({
         q: query,
         part: ["snippet"],
