@@ -1,5 +1,6 @@
 import { app } from "../main/config/app"
+import env from "../main/config/env"
 
-app.listen(5000, () => {
-  console.log("Server running at http://localhost:5000")
+app.listen(env.PORT, () => {
+  console.log(`Server running at http://localhost:${env.PORT}`)
 })
