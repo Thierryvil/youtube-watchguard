@@ -12,6 +12,7 @@ import {
   type GetVideosId,
   type GetMostUsedWords,
   type GetVideosTotalTimeInSeconds,
+  type AllocateVideoByWeekday,
 } from "../../domain/usecases"
 import { type Request } from "express"
 import env from "../../main/config/env"
@@ -23,6 +24,7 @@ export class SearchController implements Controller {
     private readonly getVideosDuration: GetVideosDuration,
     private readonly getMostUsedWords: GetMostUsedWords,
     private readonly getVideosTotalTimeInSeconds: GetVideosTotalTimeInSeconds,
+    private readonly allocateVideos: AllocateVideoByWeekday,
   ) {}
 
   async handle(
@@ -69,12 +71,16 @@ export class SearchController implements Controller {
       const totalInSecondsToWatchAllVideos =
         this.getVideosTotalTimeInSeconds.execute(allVideoDurations)
 
+      const videosAllocated = this.allocateVideos.execute(
+        secondsPerWeekDays,
+        videosDuration,
+      )
       const x: SearchViewModel[] = [
         {
           mostUsedWordsInDescriptions,
           mostUsedWordsInTitles,
           totalInSecondsToWatchAllVideos,
-          videos: Video.mapList(videosDuration),
+          videos: Video.mapList(videosAllocated),
         },
       ]
       return ok(x)

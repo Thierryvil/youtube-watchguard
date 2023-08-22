@@ -4,6 +4,7 @@ import {
   GetVideosDurationService,
   GetMostUsedWordsService,
   GetVideosTotalTimeInSecondsService,
+  AllocateVideoByWeekdayService,
 } from "../../data/services"
 import {
   YoutuVideosDurationsRepository,
@@ -31,6 +32,7 @@ export const makeSearchController = (): Controller => {
   const getMostUsedWordsService = new GetMostUsedWordsService()
   const getVideosTotalTimeInSecondsService =
     new GetVideosTotalTimeInSecondsService()
+  const allocateVideosService = new AllocateVideoByWeekdayService()
 
   const searchController = new SearchController(
     getVideosDataService,
@@ -38,6 +40,7 @@ export const makeSearchController = (): Controller => {
     getVideosDurationService,
     getMostUsedWordsService,
     getVideosTotalTimeInSecondsService,
+    allocateVideosService,
   )
   return searchController
 }

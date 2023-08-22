@@ -11,7 +11,7 @@
   },
   "modulePathIgnorePatterns": [
     "/node_modules/",
-    "/src/utils/mocks/*",
+    "/utils/mocks/*",
     "/main/server.ts"
   ],
   "coverageReporters": [

@@ -19,7 +19,7 @@ export class Video {
     return { ...video }
   }
 
-  static mapList(videos: VideoDataModelWithDuration[]): Video[] {
-    return videos.map((video) => Video.map(video))
+  static mapList(videos: VideoDataModelWithDuration[][]): Video[][] {
+    return videos.map((video) => video.map(Video.map))
   }
 }
