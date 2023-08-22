@@ -16,7 +16,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "sourceMap": true,
     "types": [
       "node",
@@ -24,10 +24,10 @@
     ],
     "paths": {
       "@/*": [
-        "./src/*"
+        "*"
       ],
     },
-    "rootDir": "./src",
+    "rootDir": "src",
     "noEmit": false,
 
   },
@@ -35,5 +35,5 @@
     "src/**/*",
     "tests/**/*"
   ],
-  "exclude": ["node_modules", "dist", "tests"]
+  "exclude": ["node_modules", "dist", "tests"],
 }

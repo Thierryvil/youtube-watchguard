@@ -1,5 +1,5 @@
-import express from "express"
+import { app } from "../main/config/app"
 
-export const server = express()
-
-server.use(express.json())
+app.listen(5000, () => {
+  console.log("Server running at http://localhost:5000")
+})
