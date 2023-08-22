@@ -10,6 +10,7 @@ import {
   type GetVideosDuration,
   type GetVideosData,
   type GetVideosId,
+  type GetMostUsedWords,
 } from "../../domain/usecases"
 import { type Request } from "express"
 import env from "../../main/config/env"
@@ -19,6 +20,7 @@ export class SearchController implements Controller {
     private readonly getVideoData: GetVideosData,
     private readonly getVideosId: GetVideosId,
     private readonly getVideosDuration: GetVideosDuration,
+    private readonly getMostUsedWords: GetMostUsedWords,
   ) {}
 
   async handle(
@@ -42,10 +44,26 @@ export class SearchController implements Controller {
       const videosId = this.getVideosId.execute(videosData)
       const videosDuration = await this.getVideosDuration.execute(videosId)
 
+      const allVideosTitle = videosData
+        .filter((video) => video.title !== "")
+        .map((video) => video.title)
+
+      const allVideosDescriptions = videosData
+        .filter((video) => video.description !== "")
+        .map((video) => video.description)
+
+      const mostUsedWordsInTitles = this.getMostUsedWords.execute(
+        allVideosTitle,
+        env.MAX_KEYWORD_DISPLAY,
+      )
+      const mostUsedWordsInDescriptions = this.getMostUsedWords.execute(
+        allVideosDescriptions,
+        env.MAX_KEYWORD_DISPLAY,
+      )
       const x: SearchViewModel[] = [
         {
-          mostUsedWordsInDescriptions: [],
-          mostUsedWordsInTitles: [],
+          mostUsedWordsInDescriptions,
+          mostUsedWordsInTitles,
           totalInSecondsToWatchAllVideos: 0,
           videos: Video.mapList(videosDuration),
         },

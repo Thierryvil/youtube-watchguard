@@ -14,12 +14,14 @@ export class GetMostUsedWordsService implements GetMostUsedWords {
           word = accumulatedWord + " " + word
           accumulatedWord = ""
         }
-        const cleanedWord = word.replace(/[.]+$/, "").trim()
+        const cleanedWord = word.replace(/[.|,-]+$/, "").trim() // Updated regex here
         const titleCasedWord = convertToTitleCase(cleanedWord)
-        wordFrequency.set(
-          titleCasedWord,
-          (wordFrequency.get(titleCasedWord) ?? 0) + 1,
-        )
+        if (titleCasedWord.length > 0) {
+          wordFrequency.set(
+            titleCasedWord,
+            (wordFrequency.get(titleCasedWord) ?? 0) + 1,
+          )
+        }
       })
     })
 
