@@ -6,11 +6,14 @@ import {
   clientError,
 } from "../../presentation/contracts"
 import { type SearchViewModel } from "../view-model/search"
-import { type GetVideoData } from "../../domain/usecases"
+import { type GetVideoData, type GetVideosId } from "../../domain/usecases"
 import { type Request } from "express"
 
 export class SearchController implements Controller {
-  constructor(private readonly getVideoData: GetVideoData) {}
+  constructor(
+    private readonly getVideoData: GetVideoData,
+    private readonly getVideosId: GetVideosId,
+  ) {}
 
   async handle(
     req: Request,
@@ -26,7 +29,8 @@ export class SearchController implements Controller {
         return clientError("secondsPerWeekDays is required")
       }
 
-      const videoData = await this.getVideoData.execute()
+      const videosData = await this.getVideoData.execute()
+      const videosId = this.getVideosId.execute(videosData)
       const x: SearchViewModel[] = [
         {
           mostUsedWordsInDescriptions: [],

@@ -1,4 +1,4 @@
-import { GetVideoDataService } from "../../data/services/get-video-data"
+import { GetVideoDataService, GetVideosIdService } from "../../data/services"
 import { YoutubeRepository } from "../../infra/repositories/youtube"
 import { type Controller } from "../../presentation/contracts"
 import { SearchController } from "../../presentation/controllers"
@@ -18,6 +18,10 @@ export const makeSearchController = (): Controller => {
     env.DEBUG,
   )
   const getVideoDataService = new GetVideoDataService(repo)
-  const searchController = new SearchController(getVideoDataService)
+  const getVideosIdService = new GetVideosIdService()
+  const searchController = new SearchController(
+    getVideoDataService,
+    getVideosIdService,
+  )
   return searchController
 }
