@@ -8,7 +8,7 @@ export function convertISO8601ToSeconds(duration: string): number {
   const minutes = match[2] !== undefined ? parseInt(match[2]) : 0
   const seconds = match[3] !== undefined ? parseInt(match[3]) : 0
 
-  const hoursInSeconds = hours * 60 * 60
+  const hoursInSeconds = hours * 60 * 60 // 3600
   const minutesInSeconds = minutes * 60
 
   const totalSeconds = hoursInSeconds + minutesInSeconds + seconds

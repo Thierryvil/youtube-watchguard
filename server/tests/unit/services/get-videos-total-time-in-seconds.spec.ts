@@ -2,7 +2,7 @@ import { GetVideosTotalTimeInSecondsService } from '../../../src/data/services'
 
 describe('GetVideosTotalTimeInSeconds', () => {
   it('should return the total time in seconds', () => {
-    const videosDuration = ["PT5S", "PT5S", "PT5S"]
+    const videosDuration = [5, 5, 5]
 
     const sut = new GetVideosTotalTimeInSecondsService()
 
@@ -10,7 +10,7 @@ describe('GetVideosTotalTimeInSeconds', () => {
   })
 
   it('should return 0', () => {
-    const videosDuration = ["", "", ""]
+    const videosDuration = [0, 0, 0]
 
     const sut = new GetVideosTotalTimeInSecondsService()
 

@@ -7,8 +7,8 @@ export class GetVideosDurationService implements GetVideosDuration {
     private readonly getVideoDurationRepository: GetVideoDurationRepository,
   ) {}
 
-  async execute(videos: string[]): Promise<VideoSearchListWithDuration[]> {
-    const videoData = await this.getVideoDurationRepository.load(videos)
+  async execute(videoIds: string[]): Promise<VideoSearchListWithDuration[]> {
+    const videoData = await this.getVideoDurationRepository.load(videoIds)
     return videoData
   }
 }

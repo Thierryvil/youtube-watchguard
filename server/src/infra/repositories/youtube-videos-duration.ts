@@ -1,7 +1,9 @@
+import { convertISO8601ToSeconds } from "../../utils"
 import { type GetVideoDurationRepository } from "../../data/contracts"
 import { type VideoDataModelWithDuration } from "../../data/models/video"
 import { youtubeMaxResults } from "../../utils/constants"
 import { type youtube_v3 } from "googleapis"
+import { VIDEO_WITH_DURATION_MOCK } from "../../utils/mocks/video-duration"
 
 export class YoutuVideosDurationsRepository
   implements GetVideoDurationRepository
@@ -14,9 +16,9 @@ export class YoutuVideosDurationsRepository
   async load(videosId: string[]): Promise<VideoDataModelWithDuration[]> {
     const videoData: VideoDataModelWithDuration[] = []
 
-    // if (this.debug) {
-    //   return SEARCH_VIEW_MODEL
-    // }
+    if (this.debug) {
+      return VIDEO_WITH_DURATION_MOCK
+    }
 
     for (
       let startIndex = 0;
@@ -37,7 +39,9 @@ export class YoutuVideosDurationsRepository
           (item: youtube_v3.Schema$Video) => ({
             id: item.id ?? "",
             title: item.snippet?.title ?? "",
-            duration: item.contentDetails?.duration ?? "",
+            duration: convertISO8601ToSeconds(
+              item.contentDetails?.duration ?? "",
+            ),
             description: item.snippet?.description ?? "",
             publishedAt: item.snippet?.publishedAt ?? "",
             thumbnail: item.snippet?.thumbnails?.default?.url ?? "",

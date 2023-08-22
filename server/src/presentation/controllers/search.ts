@@ -64,7 +64,7 @@ export class SearchController implements Controller {
       )
 
       const allVideoDurations = videosDuration
-        .filter((video) => video.duration !== "")
+        .filter((video) => video.duration > 0)
         .map((video) => video.duration)
       const totalInSecondsToWatchAllVideos =
         this.getVideosTotalTimeInSeconds.execute(allVideoDurations)

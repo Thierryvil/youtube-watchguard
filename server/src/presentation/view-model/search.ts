@@ -1,5 +1,4 @@
 import { type VideoDataModelWithDuration } from "@/data/models/video"
-import { convertISO8601ToSeconds } from "../../utils"
 
 export interface SearchViewModel {
   videos: Video[]
@@ -17,12 +16,7 @@ export class Video {
   ) {}
 
   static map(video: VideoDataModelWithDuration): Video {
-    return {
-      id: video.id,
-      title: video.title,
-      duration: convertISO8601ToSeconds(video.duration),
-      thumbnail: video.thumbnail,
-    }
+    return { ...video }
   }
 
   static mapList(videos: VideoDataModelWithDuration[]): Video[] {

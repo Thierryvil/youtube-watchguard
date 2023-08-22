@@ -7,5 +7,5 @@ export interface VideoSearchList {
 }
 
 export interface VideoSearchListWithDuration extends VideoSearchList {
-  duration: string
+  duration: number
 }
