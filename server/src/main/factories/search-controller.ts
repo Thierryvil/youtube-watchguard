@@ -3,6 +3,7 @@ import {
   GetVideosIdService,
   GetVideosDurationService,
   GetMostUsedWordsService,
+  GetVideosTotalTimeInSecondsService,
 } from "../../data/services"
 import {
   YoutuVideosDurationsRepository,
@@ -28,11 +29,15 @@ export const makeSearchController = (): Controller => {
     getVideosDurationRepo,
   )
   const getMostUsedWordsService = new GetMostUsedWordsService()
+  const getVideosTotalTimeInSecondsService =
+    new GetVideosTotalTimeInSecondsService()
+
   const searchController = new SearchController(
     getVideosDataService,
     getVideosIdService,
     getVideosDurationService,
     getMostUsedWordsService,
+    getVideosTotalTimeInSecondsService,
   )
   return searchController
 }

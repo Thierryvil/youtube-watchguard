@@ -1,3 +1,3 @@
 export interface GetVideosTotalTimeInSeconds {
-  execute: (videosDuration: number[]) => number
+  execute: (string: string[]) => number
 }
