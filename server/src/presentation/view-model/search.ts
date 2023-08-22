@@ -1,7 +1,7 @@
 import { type VideoDataModelWithDuration } from "@/data/models/video"
 
 export interface SearchViewModel {
-  videos: Video[]
+  videos: Video[][]
   mostUsedWordsInTitles: string[]
   mostUsedWordsInDescriptions: string[]
   totalInSecondsToWatchAllVideos: number
