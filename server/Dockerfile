@@ -1,22 +1,26 @@
-FROM node:18.17-alpine AS build
+FROM node:18.17-alpine as builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package*.json ./
 
-RUN npm install --production
+RUN npm install
 
 COPY . .
 
-FROM node:18.17-alpine AS production
+RUN npm run build
+
+FROM node:18.17-alpine as production
+
+ENV PORT=5000
+ENV APP_DIR=/app
 
 WORKDIR /app
 
-COPY --from=build /app/dist ./
-COPY --from=build /app/node_modules ./node_modules
+COPY package*.json ./
+COPY --from=builder ${APP_DIR}/node_modules ./node_modules
+COPY --from=builder ${APP_DIR}/dist ./dist
 
-ENV NODE_ENV=production
+EXPOSE ${PORT}
 
-EXPOSE 5000
-
-CMD ["node", "main.js"]
+CMD ["npm", "run", "start"]
