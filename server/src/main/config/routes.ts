@@ -8,7 +8,10 @@ export const setupRoutes = (app: Express): void => {
 
   const routesDirectory = path.join(__dirname, "..", "routes")
   readdirSync(routesDirectory).map(async (fileName) => {
-    const routeModule = await import(path.join(routesDirectory, fileName))
-    routeModule.default(router)
+    if (!fileName.includes(".map")) {
+      const routeModule = (await import(path.join(routesDirectory, fileName)))
+        .default
+      routeModule(router)
+    }
   })
 }

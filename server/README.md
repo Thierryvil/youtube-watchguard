@@ -2,6 +2,15 @@
 
 Bem-vindo ao repositório do YouTube WatchGuard Server! 📹🔒
 
+# Tecnologias Usadas
+1. **ESLint** para linting e formatação de código
+2. **Jest** para testes
+4. **@SWC/Core** e **@SWC/Jest** para compilação e teste
+4. **MSW** para simulação de API
+5. **SuperTest** para testes de API HTTP
+6. **Express** para servidor HTTP
+7. **GoogleaApis** para requisições na API do Youtube
+
 # Configuração ⚙️
 
 Antes de começar, certifique-se de seguir as etapas abaixo para configurar o ambiente corretamente:
@@ -46,14 +55,30 @@ Lembre-se de substituir **sua-chave-da-api-do-google** pela sua chave de API do 
 ```sh
 git clone https://github.com/Thierryvil/youtube-watchguard
 ```
-
-2. Instalar dependências
-Navegue até o diretório do projeto e instale as dependências necessárias:
+2. Navegue até o diretório do projeto:
 ```sh
-cd youtube-watchguard && cd server/ && npm install
+cd youtube-watchguard && cd server/ 
 ```
 
-3. Depois de configurar o ambiente, você pode iniciar o servidor usando o seguinte comando:
+## Localmente
+
+1. Instalar dependências
+```sh
+npm install
+```
+
+2. Depois de configurar o ambiente, você pode iniciar o servidor usando o seguinte comando:
 ```sh
 npm start
+```
+
+## Docker
+1. Realizar o build:
+```sh
+docker build -t youtube-watchguard-server .  
+```
+
+2. Iniciar o servidor:
+```sh
+docker run -it -p 5000:5000 youtube-watchguard-server
 ```
