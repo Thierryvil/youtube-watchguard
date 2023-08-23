@@ -2,7 +2,18 @@
 
 Bem-vindo ao repositório do YouTube WatchGuard Server! 📹🔒
 
-# Tecnologias Usadas
+## Pré-requisitos 🛠️
+
+Antes de começar, certifique-se de que você tenha o seguinte instalado em seu sistema:
+
+- Node.js v18.17.1
+- npm 9.8.1
+- TypeScript 4.5.2
+
+## Tecnologias Utilizadas 🛠️
+
+O YouTube WatchGuard Server foi desenvolvido utilizando as seguintes tecnologias:
+
 1. **ESLint** para linting e formatação de código
 2. **Jest** para testes
 4. **@SWC/Core** e **@SWC/Jest** para compilação e teste
@@ -12,11 +23,11 @@ Bem-vindo ao repositório do YouTube WatchGuard Server! 📹🔒
 7. **GoogleaApis** para requisições na API do Youtube
 8. **Morgan** para logs de requisições
 
-# Configuração ⚙️
+## Configuração ⚙️
 
 Antes de começar, certifique-se de seguir as etapas abaixo para configurar o ambiente corretamente:
 
-## 1. Obter uma Chave de API do Google 🗝️
+### 1. Obter uma Chave de API do Google 🗝️
 
 Para acessar a API do YouTube, você precisa de uma Chave de API do Google. Siga os passos abaixo para obtê-la:
 
@@ -27,7 +38,7 @@ Para acessar a API do YouTube, você precisa de uma Chave de API do Google. Siga
 5. (Opcional, mas recomendado) Restrinja a Chave de API conforme necessário.
 6. Copie a Chave de API gerada.
 
-## 2. Variáveis de Ambiente 🌐
+### 2. Variáveis de Ambiente 🌐
 
 Aqui estão as variáveis de ambiente utilizadas neste projeto:
 
@@ -63,7 +74,7 @@ git clone https://github.com/Thierryvil/youtube-watchguard
 cd youtube-watchguard && cd server/ 
 ```
 
-## Localmente
+### Localmente
 
 1. Instalar dependências
 ```sh
@@ -75,7 +86,7 @@ npm install
 npm start
 ```
 
-## Docker
+### Docker
 1. Realizar o build:
 ```sh
 docker build -t youtube-watchguard-server .  
