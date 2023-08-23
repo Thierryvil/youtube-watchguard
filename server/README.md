@@ -38,7 +38,7 @@ Aqui estão as variáveis de ambiente utilizadas neste projeto:
 
 **MAX_KEYWORD_DISPLAY**: Quantidade maxima de palavras que irá contar (Padrao: 5)
 
-**DEBUG**: Verifica se esta no modo DEBUG para usar dados mockados.
+**DEBUG**: Verifica se a variavel de ambiente NODE_ENV esta como **production**.
 
 ### Configurar variáveis de ambiente
 
@@ -46,6 +46,8 @@ Crie um arquivo .env na raiz do projeto e defina as seguintes variáveis de ambi
 ```env
 GOOGLE_API_KEY=sua-chave-da-api-do-google
 PORT=5000
+MAX_VIDEO_RESULTS=200
+MAX_KEYWORD_DISPLAY = 5
 ```
 Lembre-se de substituir **sua-chave-da-api-do-google** pela sua chave de API do Google.
 
