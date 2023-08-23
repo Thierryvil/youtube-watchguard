@@ -2,6 +2,58 @@
 
 Bem-vindo ao repositório do YouTube WatchGuard Server! 📹🔒
 
+## Rota: `/search`
+
+A rota `/search` é usada para realizar pesquisas no sistema. Ela aceita consultas e retorna os resultados correspondentes. Abaixo estão os detalhes sobre como usar essa rota.
+
+
+### POST /search
+
+```sh
+curl -X POST http://localhost:5000  -H "Content-Type: application/json" -d '{"query": "teste", "secondsPerWeekDays": [120, 0, 0, 0, 0, 0, 0]}'
+```
+
+### Corpo da Requisição
+**query** string
+
+***secondsPerWeekDays** number[]
+
+`Exemplo`:
+```json
+{
+  "query": "javascript",
+  "secondsPerWeekDays": [900, 7200, 1800, 9000, 1200, 2400, 5400]
+}
+```
+
+
+### Resposta
+
+A resposta desta rota será um JSON contendo os resultados da pesquisa com base na consulta fornecida.
+
+Exemplo de resposta:
+
+```json
+{
+  "mostUsedWordsInDescriptions": ["Teste", "Dois"],
+  "mostUsedWordsInTitles": ["Teste", "Dois"],
+  "totalInSecondsToWatchAllVideos": 12121,
+  "videos": [
+    [],
+    [
+     {
+        "id": "141412121",
+        "title": "title",
+        "description": "description",
+        "duration": 60,
+        "thumbnail": "thumbnail",
+        "publishedAt": "2021-01-01T00:00:00Z",
+      } 
+    ]
+  ]
+}
+```
+
 ## Pré-requisitos 🛠️
 
 Antes de começar, certifique-se de que você tenha o seguinte instalado em seu sistema:
