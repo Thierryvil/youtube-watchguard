@@ -1,6 +1,6 @@
 import { type GetVideosDataRepository } from "../../data/contracts/get-videos-data-repository"
 import { type VideoDataModel } from "../../data/models/video"
-import { SEARCH_VIEW_MODEL } from "../../utils/mocks/search-video-model"
+import { YOUTUBE_VIDEOS_DATA_MOCK } from "../../utils/mocks/youtube-video-data-mock"
 import { type youtube_v3 } from "googleapis"
 
 export class YoutubeVideosDataRepository implements GetVideosDataRepository {
@@ -13,7 +13,7 @@ export class YoutubeVideosDataRepository implements GetVideosDataRepository {
     const videoData: VideoDataModel[] = []
 
     if (this.debug) {
-      return SEARCH_VIEW_MODEL
+      return YOUTUBE_VIDEOS_DATA_MOCK
     }
 
     let nextPageToken: string | undefined

@@ -20,10 +20,10 @@
      },
      "overrides": [
         {
-          "files": ["tests/**/*.spec.ts"],
-          "extends": ["plugin:@typescript-eslint/recommended"],
+          "files": ["**/*.spec.ts"],
+          "extends": ["plugin:@typescript-eslint/recommended", "plugin:jest/recommended"],
           "parserOptions": {
-            "project": "tsconfig.json"
+            "project": "tsconfig.test.json"
           }
         }
       ],

@@ -1,4 +1,4 @@
-export const VIDEO_WITH_DURATION_MOCK = [
+export const YOUTUBE_VIDEOS_DURATION_MOCK = [
   {
     id: "Ptbk2af68e8",
     title: "O que o JavaScript é capaz de fazer? - Curso JavaScript #01",

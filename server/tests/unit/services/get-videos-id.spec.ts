@@ -1,11 +1,10 @@
-import { VideoSearchList } from '../../../src/domain/entities'
-import { GetVideosIdService } from '../../../src/data/services'
+import { type VideoSearchList } from "../../../src/domain/entities"
+import { GetVideosIdService } from "../../../src/data/services"
 
-describe('GetVideosId', () => {
+describe("GetVideosId", () => {
   const sut = new GetVideosIdService()
 
-  it('should return an array of ids', () => {
-
+  it("should return an array of ids", () => {
     const videos: VideoSearchList[] = [
       {
         id: "Ptbk2af68e8",
@@ -25,10 +24,12 @@ describe('GetVideosId', () => {
       },
     ]
 
-    expect(sut.execute(videos)).toEqual(expect.arrayContaining(["Ptbk2af68e8", "Ptbk2af68e7"]))
+    expect(sut.execute(videos)).toEqual(
+      expect.arrayContaining(["Ptbk2af68e8", "Ptbk2af68e7"]),
+    )
   })
 
-  it('should return an empty array', () => {
+  it("should return an empty array", () => {
     const videos: VideoSearchList[] = [
       {
         id: "",
@@ -42,4 +43,4 @@ describe('GetVideosId', () => {
 
     expect(sut.execute(videos)).toEqual(expect.arrayContaining([]))
   })
- })
+})

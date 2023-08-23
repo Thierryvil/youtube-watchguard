@@ -1,5 +1,5 @@
 import { AllocateVideoByWeekdayService } from "../../../src/data/services"
-import { VideoSearchListWithDuration } from "../../../src/domain/entities"
+import { type VideoSearchListWithDuration } from "../../../src/domain/entities"
 
 describe("AllocateVideoTimeUseCase", () => {
   const sut = new AllocateVideoByWeekdayService()
@@ -40,7 +40,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -57,7 +56,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -102,7 +100,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 1200,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
         {
           title: "title",
@@ -110,7 +108,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 1800,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
         {
           title: "title",
@@ -118,7 +116,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 3600,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
       ],
       [],
@@ -129,7 +127,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 5400,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
         {
           title: "title",
@@ -137,7 +135,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 1800,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
       ],
       [],
@@ -148,7 +146,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 2400,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
       ],
       [
@@ -158,7 +156,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 1200,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
         {
           title: "title",
@@ -166,7 +164,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 3600,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
       ],
       [
@@ -176,7 +174,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 900,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
       ],
     ]
@@ -193,7 +191,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -202,7 +199,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -211,7 +207,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -236,7 +231,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -330,7 +324,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -339,7 +332,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -348,7 +340,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -357,7 +348,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -366,7 +356,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -375,7 +364,6 @@ describe("AllocateVideoTimeUseCase", () => {
         id: "id",
         thumbnail: "thumbnail",
         publishedAt: "2021-01-01T00:00:00Z",
-
       },
       {
         title: "title",
@@ -412,7 +400,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 1200,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
         {
           title: "title",
@@ -420,7 +408,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 1800,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
         {
           title: "title",
@@ -428,7 +416,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 3600,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
       ],
       [],
@@ -439,7 +427,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 5400,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
         {
           title: "title",
@@ -447,7 +435,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 1800,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
       ],
       [],
@@ -458,7 +446,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 2400,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
       ],
       [
@@ -468,7 +456,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 1200,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
         {
           title: "title",
@@ -476,7 +464,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 3600,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
       ],
       [],
@@ -487,7 +475,7 @@ describe("AllocateVideoTimeUseCase", () => {
           duration: 1020,
           id: "id",
           thumbnail: "thumbnail",
-          publishedAt: "2021-01-01T00:00:00Z"
+          publishedAt: "2021-01-01T00:00:00Z",
         },
       ],
     ]

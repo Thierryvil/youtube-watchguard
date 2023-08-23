@@ -3,7 +3,7 @@ import { type GetVideoDurationRepository } from "../../data/contracts"
 import { type VideoDataModelWithDuration } from "../../data/models/video"
 import { youtubeMaxResults } from "../../utils/constants"
 import { type youtube_v3 } from "googleapis"
-import { VIDEO_WITH_DURATION_MOCK } from "../../utils/mocks/video-duration"
+import { YOUTUBE_VIDEOS_DURATION_MOCK } from "../../utils/mocks/youtube-videos-duration-mock"
 
 export class YoutuVideosDurationsRepository
   implements GetVideoDurationRepository
@@ -17,7 +17,7 @@ export class YoutuVideosDurationsRepository
     const videoData: VideoDataModelWithDuration[] = []
 
     if (this.debug) {
-      return VIDEO_WITH_DURATION_MOCK
+      return YOUTUBE_VIDEOS_DURATION_MOCK
     }
 
     for (
