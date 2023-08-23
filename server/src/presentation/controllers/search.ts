@@ -27,9 +27,7 @@ export class SearchController implements Controller {
     private readonly allocateVideos: AllocateVideoByWeekday,
   ) {}
 
-  async handle(
-    req: Request,
-  ): Promise<HttpResponse<SearchViewModel[] | string>> {
+  async handle(req: Request): Promise<HttpResponse<SearchViewModel | string>> {
     try {
       const { query, secondsPerWeekDays } = req.body
 
@@ -75,14 +73,12 @@ export class SearchController implements Controller {
         secondsPerWeekDays,
         videosDuration,
       )
-      const x: SearchViewModel[] = [
-        {
-          mostUsedWordsInDescriptions,
-          mostUsedWordsInTitles,
-          totalInSecondsToWatchAllVideos,
-          videos: Video.mapList(videosAllocated),
-        },
-      ]
+      const x: SearchViewModel = {
+        mostUsedWordsInDescriptions,
+        mostUsedWordsInTitles,
+        totalInSecondsToWatchAllVideos,
+        videos: Video.mapList(videosAllocated),
+      }
       return ok(x)
     } catch (error) {
       return serverError(error as Error)

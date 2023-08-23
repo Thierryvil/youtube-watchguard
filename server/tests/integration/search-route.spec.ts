@@ -123,7 +123,7 @@ describe("Search Route Integration Tests", () => {
     const response = await makeSearchRequest(body)
 
     expect(response.status).toBe(200)
-    expect(response.body).toBeInstanceOf(Array)
+    expect(response.body).toBeInstanceOf(Object)
   })
 
   it("should response have propertys", async () => {
@@ -134,15 +134,13 @@ describe("Search Route Integration Tests", () => {
 
     const response = await makeSearchRequest(body)
 
-    response.body.forEach((item) => {
-      expect(item).toHaveProperty("mostUsedWordsInDescriptions")
-      expect(item).toHaveProperty("mostUsedWordsInTitles")
-      expect(item).toHaveProperty("totalInSecondsToWatchAllVideos")
-      expect(item).toHaveProperty("videos")
-    })
+    expect(response.body).toHaveProperty("mostUsedWordsInDescriptions")
+    expect(response.body).toHaveProperty("mostUsedWordsInTitles")
+    expect(response.body).toHaveProperty("totalInSecondsToWatchAllVideos")
+    expect(response.body).toHaveProperty("videos")
   })
 
-  it("should mostUsedWordsInDescriptions be a array", async () => {
+  it("should mostUsedWordsInDescriptions be a object", async () => {
     const body = {
       query: "test",
       secondsPerWeekDays: [900, 7200, 1800, 9000, 1200, 2400, 5400],
@@ -151,14 +149,12 @@ describe("Search Route Integration Tests", () => {
     const response = await makeSearchRequest(body)
 
     expect(response.status).toBe(200)
-    expect(response.body).toBeInstanceOf(Array)
-    response.body.forEach((item) => {
-      expect(item).toHaveProperty("mostUsedWordsInDescriptions")
-      expect(Array.isArray(item.mostUsedWordsInDescriptions)).toBe(true)
-    })
+    expect(response.body).toBeInstanceOf(Object)
+    expect(response.body).toHaveProperty("mostUsedWordsInDescriptions")
+    expect(Array.isArray(response.body.mostUsedWordsInDescriptions)).toBe(true)
   })
 
-  it("should mostUsedWordsInTitles be a array", async () => {
+  it("should mostUsedWordsInTitles be a object", async () => {
     const body = {
       query: "test",
       secondsPerWeekDays: [900, 7200, 1800, 9000, 1200, 2400, 5400],
@@ -167,11 +163,9 @@ describe("Search Route Integration Tests", () => {
     const response = await makeSearchRequest(body)
 
     expect(response.status).toBe(200)
-    expect(response.body).toBeInstanceOf(Array)
-    response.body.forEach((item) => {
-      expect(item).toHaveProperty("mostUsedWordsInTitles")
-      expect(Array.isArray(item.mostUsedWordsInTitles)).toBe(true)
-    })
+    expect(response.body).toBeInstanceOf(Object)
+    expect(response.body).toHaveProperty("mostUsedWordsInTitles")
+    expect(Array.isArray(response.body.mostUsedWordsInTitles)).toBe(true)
   })
 
   it("should totalInSecondsToWatchAllVideos be a number", async () => {
@@ -183,11 +177,9 @@ describe("Search Route Integration Tests", () => {
     const response = await makeSearchRequest(body)
 
     expect(response.status).toBe(200)
-    expect(response.body).toBeInstanceOf(Array)
-    response.body.forEach((item) => {
-      expect(item).toHaveProperty("totalInSecondsToWatchAllVideos")
-      expect(typeof item.totalInSecondsToWatchAllVideos).toBe("number")
-    })
+    expect(response.body).toBeInstanceOf(Object)
+    expect(response.body).toHaveProperty("totalInSecondsToWatchAllVideos")
+    expect(typeof response.body.totalInSecondsToWatchAllVideos).toBe("number")
   })
 
   it("should videos be a array", async () => {
@@ -199,11 +191,9 @@ describe("Search Route Integration Tests", () => {
     const response = await makeSearchRequest(body)
 
     expect(response.status).toBe(200)
-    expect(response.body).toBeInstanceOf(Array)
-    response.body.forEach((item) => {
-      expect(item).toHaveProperty("videos")
-      expect(Array.isArray(item.videos)).toBe(true)
-    })
+    expect(response.body).toBeInstanceOf(Object)
+    expect(response.body).toHaveProperty("videos")
+    expect(Array.isArray(response.body.videos)).toBe(true)
   })
 
   it("should return status code 404 for missing query in body", async () => {
