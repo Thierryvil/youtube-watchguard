@@ -11,6 +11,12 @@ Comece a definir seus limites diários e aproveite um tempo mais saudável no Yo
 
 ## Pré-requisitos 🛠️
 
+### 2. Variáveis de Ambiente 🌐
+
+Aqui estão as variáveis de ambiente utilizadas neste projeto:
+
+**API_URL**: Endereço do Backend.
+
 Antes de começar, certifique-se de que você tenha o seguinte instalado em seu sistema:
 
 - Node.js v18.17.1

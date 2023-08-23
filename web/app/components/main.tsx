@@ -1,5 +1,5 @@
 import { SearchResponse, Video } from "../entities";
-import { convertSecondsToDays, daysOfWeek } from "../utils";
+import { convertSecondsToFullTime, daysOfWeek } from "../utils";
 import Infos from "./infos";
 import VideoCardSkeleton from "./skeletons/video-card";
 import VideoCard from "./video-card";
@@ -46,7 +46,7 @@ export function Main({ searchData, isLoading }: MainProps) {
   if (!searchData) return
 
   const allVideos = searchData.videos
-  const totalTimeToWatch = convertSecondsToDays(searchData.totalInSecondsToWatchAllVideos)
+  const totalTimeToWatch = convertSecondsToFullTime(searchData.totalInSecondsToWatchAllVideos)
   const { mostUsedWordsInDescriptions, mostUsedWordsInTitles } = searchData
 
   if (allVideos.length === 0) {

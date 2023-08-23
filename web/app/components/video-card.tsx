@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Video } from '../entities';
-import { formatTime } from '../utils';
+import { formatTimeToVideo } from '../utils';
 
 const VideoCard = ({ title, thumbnail, duration }: Video) => {
   return (
@@ -9,7 +9,7 @@ const VideoCard = ({ title, thumbnail, duration }: Video) => {
       <div className="relative">
         <Image src={thumbnail} alt={title} width={800} height={450} />
         <span className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white py-1 px-2 rounded">
-          {formatTime(duration)}
+          {formatTimeToVideo(duration)}
         </span>
       </div>
       <h3 className="mt-2 text-lg font-semibold">{title}</h3>
