@@ -1,0 +1,50 @@
+{
+    "env": {
+        "es2021": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": [
+        "standard-with-typescript",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
+        "plugin:jest/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "tsconfig.json",
+        "sourceType": "module",
+        "ecmaVersion": 2020
+     },
+     "overrides": [
+        {
+          "files": ["**/*.spec.ts"],
+          "extends": ["plugin:@typescript-eslint/recommended", "plugin:jest/recommended"],
+          "parserOptions": {
+            "project": "tsconfig.test.json"
+          }
+        }
+      ],
+    "rules": {
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "prettier/prettier": [
+            "error",
+            {
+            "printWidth": 80,
+            "tabWidth": 2,
+            "singleQuote": false,
+            "trailingComma": "all",
+            "arrowParens": "always",
+            "semi": false,
+            "endOfLine": "auto"
+            }
+        ]
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "jest"
+    ]
+}

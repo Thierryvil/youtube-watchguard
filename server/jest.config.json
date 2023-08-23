@@ -1,0 +1,27 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "verbose": true,
+  "testMatch": [
+    "**/tests/**/*.+(ts|tsx|js)",
+    "**/?(*.)+(spec|test).+(ts|tsx|js)"
+  ],
+  "transform": {
+    "^.+\\.(t|j)sx?$": "@swc/jest"
+  },
+  "modulePathIgnorePatterns": [
+    "/node_modules/",
+    "/utils/mocks/*",
+    "/main/server.ts"
+  ],
+  "coverageReporters": [
+    "html"
+  ],
+  "collectCoverageFrom": [
+    "src/**/*.{ts,tsx,js,jsx}",
+    "!src/**/*.d.ts"
+  ],
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/src/$1"
+  }
+}

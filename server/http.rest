@@ -1,0 +1,9 @@
+POST http://localhost:5000/search
+Content-Type: application/json
+
+{
+  "query": "test",
+  "secondsPerWeekDays": [
+        900, 7200, 1800, 9000, 1200, 2400, 5400
+  ]
+}
