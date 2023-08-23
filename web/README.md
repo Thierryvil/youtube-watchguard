@@ -1,6 +1,8 @@
-# 👀 YouTube WatchGuard
+# 👀 YouTube WatchGuard Web
 
 O YouTube WatchGuard é uma aplicação web desenvolvida em Next.js 13 e TypeScript que permite aos usuários controlar o tempo que passam assistindo a vídeos no YouTube. Com esta ferramenta, você pode definir limites diários para o tempo de visualização em diferentes dias da semana, ajudando a manter um equilíbrio saudável entre o entretenimento online e outras atividades importantes.
+
+Comece a definir seus limites diários e aproveite um tempo mais saudável no YouTube! 🎉
 
 ## Recursos Principais 🚀
 
@@ -17,38 +19,47 @@ Antes de começar, certifique-se de que você tenha o seguinte instalado em seu 
 
 ## Tecnologias Utilizadas 🛠️
 
-O YouTube WatchGuard foi desenvolvido utilizando as seguintes tecnologias:
+O YouTube WatchGuard Web foi desenvolvido utilizando as seguintes tecnologias:
 
-- [Next.js 13](https://nextjs.org/) - Um framework React com foco em renderização do lado do servidor.
-- [Tailwind CSS](https://tailwindcss.com/) - Uma estrutura CSS utilitária altamente personalizável para desenvolvimento rápido.
-- [Material Icons](https://material.io/resources/icons/) - Ícones de design fornecidos pelo Google.
-- [ESLint](https://eslint.org/) - Uma ferramenta de análise de código estático para identificar e corrigir problemas no código JavaScript/TypeScript.
+1. **Next.js 13** Framework React com foco em renderização do lado do servidor.
+2. **Tailwind CSS** Uma estrutura CSS utilitária altamente personalizável para desenvolvimento rápido.
+3. **Material Icons** - para icones de design fornecidos pelo Google.
+4. **Yup** para validação de esquemas.
+5. **Jest** para testes
 
-## Instalação e Uso 🚀
+## Projeto 🚀
 
 1. Clone este repositório para o seu computador:
-```bash
+```sh
 git clone https://github.com/Thierryvil/youtube-watchguard
 ```
 
 2. Navegue até o diretório do projeto:
-```bash
-cd youtube-watchguard
+```sh
+cd youtube-watchguard && cd web 
 ```
 
+### Localmente 
+1. Instalar dependências
+```sh
+npm install
+```
+
+2. Depois de configurar o ambiente, você pode iniciar o servidor usando o seguinte comando:
+```sh
+npm start
+```
+
+### Docker
+
 3. Faça o build da aplicação:
-```bash
-docker build -t youtube-watchguard . 
+```sh
+docker build -t youtube-watchguard-web . 
 ```
 
 4. Inicie a aplicação:
-```bash
-docker run -p 3000:3000 -it youtube-watchguard
+```sh
+docker run -it -p 3000:3000 youtube-watchguard-web
 ```
 
 Acesse a aplicação em seu navegador em http://localhost:3000.
-
-Comece a definir seus limites diários e aproveite um tempo mais saudável no YouTube! 🎉
-
-
-Esperamos que o YouTube WatchGuard ajude você a gerenciar seu tempo no YouTube de forma mais eficaz e equilibrada. Se você tiver alguma dúvida, sugestão ou relatório de bug, não hesite em abrir uma issue neste repositório. Aproveite a aplicação e continue sendo produtivo! 🌟
