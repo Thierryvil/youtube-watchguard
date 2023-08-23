@@ -16,6 +16,7 @@ import {
 } from "../../domain/usecases"
 import { type Request } from "express"
 import env from "../../main/config/env"
+import { type VideoSearchListWithDuration } from "@/domain/entities"
 
 export class SearchController implements Controller {
   constructor(
@@ -45,10 +46,8 @@ export class SearchController implements Controller {
       )
       const videosId = this.getVideosId.execute(videosData)
       const videosDuration = await this.getVideosDuration.execute(videosId)
-
       const allVideosTitle = videosData.map((video) => video.title)
       const allVideosDescriptions = videosData.map((video) => video.description)
-
       const mostUsedWordsInTitles = this.getMostUsedWords.execute(
         allVideosTitle,
         env.MAX_KEYWORD_DISPLAY,
@@ -57,17 +56,19 @@ export class SearchController implements Controller {
         allVideosDescriptions,
         env.MAX_KEYWORD_DISPLAY,
       )
-
-      const allVideoDurations = videosDuration
-        .filter((video) => video.duration > 0)
-        .map((video) => video.duration)
-      const totalInSecondsToWatchAllVideos =
-        this.getVideosTotalTimeInSeconds.execute(allVideoDurations)
-
       const videosAllocated = this.allocateVideos.execute(
         secondsPerWeekDays,
         videosDuration,
       )
+
+      const allVideosDurations: number[] = videosAllocated.map(
+        (videos: VideoSearchListWithDuration[]) =>
+          videos.reduce((total, video) => total + video.duration, 0),
+      )
+
+      const totalInSecondsToWatchAllVideos =
+        this.getVideosTotalTimeInSeconds.execute(allVideosDurations)
+
       const x: SearchViewModel = {
         mostUsedWordsInDescriptions,
         mostUsedWordsInTitles,
