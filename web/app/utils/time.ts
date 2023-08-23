@@ -1,5 +1,3 @@
-import dayjs from 'dayjs';
-
 export function convertSecondsToFullTime(seconds: number): string {
   const days = Math.floor(seconds / (60 * 60 * 24));
   const hours = Math.floor((seconds % (60 * 60 * 24)) / (60 * 60));
