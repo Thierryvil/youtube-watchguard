@@ -5,6 +5,7 @@ export class GetMostUsedWordsService implements GetMostUsedWords {
   execute(texts: string[], totalWords: number): string[] {
     const wordFrequency = new Map<string, number>()
 
+    texts = texts.filter((text) => text !== "")
     texts.forEach((text) => {
       const words = text.split(/\s+/)
 

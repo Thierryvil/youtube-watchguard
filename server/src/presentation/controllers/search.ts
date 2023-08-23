@@ -46,13 +46,8 @@ export class SearchController implements Controller {
       const videosId = this.getVideosId.execute(videosData)
       const videosDuration = await this.getVideosDuration.execute(videosId)
 
-      const allVideosTitle = videosData
-        .filter((video) => video.title !== "")
-        .map((video) => video.title)
-
-      const allVideosDescriptions = videosData
-        .filter((video) => video.description !== "")
-        .map((video) => video.description)
+      const allVideosTitle = videosData.map((video) => video.title)
+      const allVideosDescriptions = videosData.map((video) => video.description)
 
       const mostUsedWordsInTitles = this.getMostUsedWords.execute(
         allVideosTitle,
