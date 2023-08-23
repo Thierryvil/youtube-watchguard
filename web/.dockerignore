@@ -1,0 +1,12 @@
+.next
+out
+node_modules
+package-lock.json
+yarn.lock
+.DS_Store
+.cache
+*.log
+*.log.*
+dist
+*.bak
+*.swp
