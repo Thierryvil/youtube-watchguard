@@ -67,7 +67,7 @@ export function Main({ searchData, isLoading }: MainProps) {
               < h1 className="text-4xl font-bold px-3">{daysOfWeek[groupIndex % daysOfWeek.length]}</h1>
             </div>
           }
-          <div className="flex overflow-x-scroll">
+          <div key={groupIndex} className="flex overflow-x-scroll">
             {videoGroup.map((video: Video, videoIndex: number) => (
               <VideoCard
                 key={videoIndex}
