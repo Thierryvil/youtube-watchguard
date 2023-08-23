@@ -1,4 +1,6 @@
-# Youtube WatchGuard
+# Bem vindo(a) ao Youtube WatchGuard
+
+![Imagem da Página Inicial](assets/home.png)
 
 WEB: https://youtube-watchguard.vercel.app/
 
