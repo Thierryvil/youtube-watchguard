@@ -10,6 +10,7 @@ Bem-vindo ao repositório do YouTube WatchGuard Server! 📹🔒
 5. **SuperTest** para testes de API HTTP
 6. **Express** para servidor HTTP
 7. **GoogleaApis** para requisições na API do Youtube
+8. **Morgan** para logs de requisições
 
 # Configuração ⚙️
 
