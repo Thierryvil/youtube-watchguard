@@ -34,9 +34,9 @@ Para interagir com o backend implantado, o frontend faz solicitações para: [Fl
 
 A documentação do Youtube WatchGuard está dividida em duas partes principais: a documentação do servidor e a documentação da interface web.
 
-- [Documentação do Servidor](/server/): Esta seção contém informações detalhadas sobre como configurar e executar o servidor do Youtube WatchGuard. Descreve os requisitos do sistema, as dependências, as etapas de instalação e as opções de configuração disponíveis.
+- [Documentação do Servidor](/server/README.md): Esta seção contém informações detalhadas sobre como configurar e executar o servidor do Youtube WatchGuard. Descreve os requisitos do sistema, as dependências, as etapas de instalação e as opções de configuração disponíveis.
 
-- [Documentação da Interface Web](/web/): Aqui, você encontrará instruções sobre como configurar e usar a interface web do Youtube WatchGuard. Descreve os requisitos do sistema, as dependências, as etapas de instalação e as opções de configuração disponíveis.
+- [Documentação da Interface Web](/web/README.md): Aqui, você encontrará instruções sobre como configurar e usar a interface web do Youtube WatchGuard. Descreve os requisitos do sistema, as dependências, as etapas de instalação e as opções de configuração disponíveis.
 
 
 ## Rodando aplicação
