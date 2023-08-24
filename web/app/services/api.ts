@@ -19,6 +19,9 @@ const fetchData = async ({ query, secondsPerWeekDays, setData }: FetchProps) => 
     }),
   }
   )
+
+  if (response.status !== 200) throw new Error("Error fetching data")
+
   setData(await response.json())
 }
 

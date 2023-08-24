@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Video } from '../entities';
 import { formatTimeToVideo } from '../utils';
 import VideoModal from './video-modal';
 
