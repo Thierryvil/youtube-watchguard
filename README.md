@@ -2,9 +2,9 @@
 
 ![Imagem da Página Inicial](assets/home.png)
 
-WEB: https://youtube-watchguard.vercel.app/
+Para acessar o frontend implantado, basta visitar:  https://youtube-watchguard.vercel.app
 
-BACKEND: https://youtube-watchguard-server.fly.dev
+Para interagir com o backend implantado, o frontend faz solicitações para: https://youtube-watchguard-server.fly.dev
 
 O Youtube WatchGuard é um projeto desenvolvido para monitorar e controlar o acesso a vídeos do YouTube. Ele consiste em um servidor e uma interface web que trabalham em conjunto para proporcionar um controle refinado sobre o que os usuários podem assistir na plataforma YouTube.
 
@@ -15,14 +15,10 @@ O Youtube WatchGuard é implantado em dois ambientes diferentes: a Vercel e a Fl
 ### Frontend - Vercel
 O frontend O Youtube WatchGuard é implantado na Vercel, uma plataforma de hospedagem que oferece implantações rápidas e escaláveis para aplicativos da web. A Vercel simplifica o processo de implantação e hospedagem, permitindo que você se concentre mais no desenvolvimento do aplicativo em si.
 
-Para acessar o frontend implantado, basta visitar: [Vercel](https://youtube-watchguard.vercel.app/)
-
 OBS: Foi necessário adicionar o prefixo `NEXT_PUBLIC` nas variaveis de ambiente
 
 ### Backend - Fly.io
 O backend O Youtube WatchGuard é implantado na Fly.io, uma plataforma que fornece implantação global para aplicativos. A Fly.io permite que você implante seu aplicativo em vários data centers ao redor do mundo, melhorando o desempenho e a confiabilidade.
-
-Para interagir com o backend implantado, o frontend faz solicitações para: [Fly.io](https://youtube-watchguard-server.fly.dev)
 
 ## Funcionalidades
 
