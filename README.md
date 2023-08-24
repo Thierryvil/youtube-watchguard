@@ -38,10 +38,24 @@ A documentação do Youtube WatchGuard está dividida em duas partes principais:
 ## Rodando aplicação
 
 Siga as instruções abaixo para instalar e configurar o Youtube WatchGuard:
-
 1. Clone este repositório: `git clone https://github.com/Thierryvil/youtube-watchguard.git`
 2. Navegue até a pasta da aplicação `cd youtube-watchguard`
+   
+
+### Localmente
+
 3. Navegue até a pasta do servidor: `cd server`
 4. Siga as instruções na [Documentação do Servidor](/server/) para configurar e executar o servidor.
 5. Navegue até a pasta da interface web: `cd ../web`
 6. Consulte a [Documentação da Web](/web/) para configurar a interface web.
+
+### Docker
+1. Faça o build do projeto
+```sh
+docker-compose build --no-cache
+```
+
+2. Inice a aplicação
+```sh
+docker-compose up -d
+```
