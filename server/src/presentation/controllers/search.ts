@@ -26,7 +26,7 @@ export class SearchController implements Controller {
     private readonly getMostUsedWords: GetMostUsedWords,
     private readonly getVideosTotalTimeInSeconds: GetVideosTotalTimeInSeconds,
     private readonly allocateVideos: AllocateVideoByWeekday,
-  ) {}
+  ) { }
 
   async handle(req: Request): Promise<HttpResponse<SearchViewModel | string>> {
     try {
@@ -46,16 +46,7 @@ export class SearchController implements Controller {
       )
       const videosId = this.getVideosId.execute(videosData)
       const videosDuration = await this.getVideosDuration.execute(videosId)
-      const allVideosTitle = videosData.map((video) => video.title)
-      const allVideosDescriptions = videosData.map((video) => video.description)
-      const mostUsedWordsInTitles = this.getMostUsedWords.execute(
-        allVideosTitle,
-        env.MAX_KEYWORD_DISPLAY,
-      )
-      const mostUsedWordsInDescriptions = this.getMostUsedWords.execute(
-        allVideosDescriptions,
-        env.MAX_KEYWORD_DISPLAY,
-      )
+
       const videosAllocated = this.allocateVideos.execute(
         secondsPerWeekDays,
         videosDuration,
@@ -65,6 +56,26 @@ export class SearchController implements Controller {
         (videos: VideoSearchListWithDuration[]) =>
           videos.reduce((total, video) => total + video.duration, 0),
       )
+
+      const allVideosTitle: string[] = videosAllocated.flatMap((videos) =>
+        videos.map((video) => video.title),
+      )
+
+      const allVideosDescriptions: string[] = videosAllocated.flatMap(
+        (videos) => videos.map((video) => video.description),
+      )
+
+      const mostUsedWordsInTitles = this.getMostUsedWords.execute(
+        allVideosTitle,
+        env.MAX_KEYWORD_DISPLAY,
+      )
+
+      const mostUsedWordsInDescriptions = this.getMostUsedWords.execute(
+        allVideosDescriptions,
+        env.MAX_KEYWORD_DISPLAY,
+      )
+
+      console.log(mostUsedWordsInDescriptions)
 
       const totalInSecondsToWatchAllVideos =
         this.getVideosTotalTimeInSeconds.execute(allVideosDurations)
