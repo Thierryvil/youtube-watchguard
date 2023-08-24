@@ -7,15 +7,14 @@ export class YoutubeVideosDataRepository implements GetVideosDataRepository {
   constructor(
     private readonly youtubeAPI: youtube_v3.Youtube,
     private readonly debug = false,
-  ) {}
+  ) { }
 
   async load(query: string, maxResults: number): Promise<VideoDataModel[]> {
-    const videoData: VideoDataModel[] = []
-
     if (this.debug) {
       return YOUTUBE_VIDEOS_DATA_MOCK
     }
 
+    const videoData: VideoDataModel[] = []
     let nextPageToken: string | undefined
     let totalVideosLoaded = 0
 

@@ -23,7 +23,10 @@ export const makeSearchController = (): Controller => {
 
   const repo = new YoutubeVideosDataRepository(youtubeAPI, env.DEBUG)
 
-  const getVideosDurationRepo = new YoutuVideosDurationsRepository(youtubeAPI)
+  const getVideosDurationRepo = new YoutuVideosDurationsRepository(
+    youtubeAPI,
+    env.DEBUG,
+  )
   const getVideosDataService = new GetVideosDataService(repo)
   const getVideosIdService = new GetVideosIdService()
   const getVideosDurationService = new GetVideosDurationService(

@@ -75,8 +75,6 @@ export class SearchController implements Controller {
         env.MAX_KEYWORD_DISPLAY,
       )
 
-      console.log(mostUsedWordsInDescriptions)
-
       const totalInSecondsToWatchAllVideos =
         this.getVideosTotalTimeInSeconds.execute(allVideosDurations)
 
