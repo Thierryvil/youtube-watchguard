@@ -9,6 +9,24 @@ interface MainProps {
   isLoading: boolean
 }
 
+interface VideoGroupProps {
+  videos: Video[];
+}
+
+const DayHeader: React.FC<{ day: string }> = ({ day }) => (
+  <div className="flex">
+    <h1 className="text-4xl font-bold px-3">{day}</h1>
+  </div>
+);
+
+const VideoGroup: React.FC<VideoGroupProps> = ({ videos }) => (
+  <div className="flex overflow-x-scroll">
+    {videos.map((video) => (
+      <VideoCard key={video.id} {...video} />
+    ))}
+  </div>
+);
+
 export function Main({ searchData, isLoading }: MainProps) {
   if (isLoading) {
     return (
@@ -59,29 +77,18 @@ export function Main({ searchData, isLoading }: MainProps) {
 
   return (
     <main className="px-4">
-      <Infos mostUsedWordsInDescriptions={mostUsedWordsInDescriptions} mostUsedWordsInTitles={mostUsedWordsInTitles} totalTimeToWatch={totalTimeToWatch} />
-      {allVideos.map((videoGroup: Video[], groupIndex: number) => (
+      <Infos
+        mostUsedWordsInDescriptions={mostUsedWordsInDescriptions.join(', ')}
+        mostUsedWordsInTitles={mostUsedWordsInTitles.join(', ')}
+        totalTimeToWatch={totalTimeToWatch}
+      />
+      {allVideos.map((videoGroup, groupIndex) => (
         <div key={groupIndex} className="py-2">
-          {videoGroup.length > 0 &&
-            <div className="flex">
-              < h1 className="text-4xl font-bold px-3">{daysOfWeek[groupIndex % daysOfWeek.length]}</h1>
-            </div>
-          }
-          <div key={groupIndex} className="flex overflow-x-scroll">
-            {videoGroup.map((video: Video, videoIndex: number) => (
-              <VideoCard
-                key={videoIndex}
-                duration={video.duration}
-                id={video.id}
-                thumbnail={video.thumbnail}
-                title={video.title}
-              />
-            ))}
-          </div>
+          {videoGroup.length > 0 ? <DayHeader day={daysOfWeek[groupIndex % daysOfWeek.length]} /> : null}
+          {videoGroup.length > 0 && <VideoGroup videos={videoGroup} />}
         </div>
-      ))
-      }
-    </main >
+      ))}
+    </main>
   );
 }
 
