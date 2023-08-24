@@ -44,10 +44,10 @@ Siga as instruções abaixo para instalar e configurar o Youtube WatchGuard:
 
 ### Localmente
 
-3. Navegue até a pasta do servidor: `cd server`
-4. Siga as instruções na [Documentação do Servidor](/server/) para configurar e executar o servidor.
-5. Navegue até a pasta da interface web: `cd ../web`
-6. Consulte a [Documentação da Web](/web/) para configurar a interface web.
+1. Navegue até a pasta do servidor: `cd server`
+2. Siga as instruções na [Documentação do Servidor](/server/) para configurar e executar o servidor.
+3. Navegue até a pasta da interface web: `cd ../web`
+4. Consulte a [Documentação da Web](/web/) para configurar a interface web.
 
 ### Docker
 1. Faça o build do projeto
